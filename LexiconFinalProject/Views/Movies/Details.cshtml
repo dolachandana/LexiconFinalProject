@@ -1,0 +1,138 @@
+﻿@model LexiconFinalProject.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MovieName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Synopsis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Synopsis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Music)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Music)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Producer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Producer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RunTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RunTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Opinion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Opinion.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-black ">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.MovieName
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" width="100%" alt="@Model.MovieName">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Synopsis</p>
+                       
+                        <p class="card-text"><b>Genre: </b>@Model.Genre</p>
+                        <p class="card-text"><b>Music: </b>@Model.Music</p>
+                        <p class="card-text"><b>Director: </b>@Model.Director</p>
+                        <p class="card-text"><b>Producer: </b>@Model.Producer</p>
+                        <p class="card-text"><b>RunTime: </b>@Model.RunTime</p>
+                        <p class="card-text"><b>Release Date: </b>@Model.ReleaseDate.ToString("dd MMM yy")</p>
+                        <p class="card-text">
+                            <b>Actor: </b>
+                            <a asp-controller="Actors" asp-action="Details" asp-route-id="@Model.ActorId">
+                                @Model.Actor.ActorName
+                            </a>
+                        
+                       
+
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a> <a class="btn btn-outline-primary float-right" asp-controller="Opinions" asp-action="Details" asp-route-id="@Model.OpinionId">
+                                Review
+                            </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

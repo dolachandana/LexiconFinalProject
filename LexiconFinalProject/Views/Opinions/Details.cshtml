@@ -1,0 +1,75 @@
+﻿@model LexiconFinalProject.Models.Opinion
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Opinion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StoryLine)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StoryLine)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Review)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Review)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-black">
+                        <h1>Review</h1>
+                    </div>
+                </div>
+               
+                <div class="col-md-8">
+                    <div class="card-body">
+                        
+                        @*<p class="card-text">
+                            <b>Cinema: </b>
+                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId">
+                                @Model.Cinema.Name
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Producer: </b>
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
+                                @Model.Producer.FullName
+                            </a>
+                        </p>*@
+                        <p class="card-text"><b>StoryLine: </b>@Model.StoryLine</p>
+                        <p class="card-text"><b>Review: </b>@Model.Review</p>
+                      </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right"asp-controller="Movies" asp-action="Index">
+                                Back to List
+                            </a>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
